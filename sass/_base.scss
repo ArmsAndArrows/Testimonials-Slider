@@ -54,8 +54,8 @@ body {
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
     font-family: "Inter", sans-serif;
-    background-color: rgb(56, 49, 49);
-    color: rgb(184, 44, 248);
+ 
+   
     *::selection{
         color: red;
     }
@@ -196,7 +196,7 @@ body {
     &__name {
         font-size: 1.5rem;
         font-weight: $ft-bold;
-        color: aqua;
+     
         @media only screen and (min-width: $bp-l) {
             font-size: 1.15rem;
         }
