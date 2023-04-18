@@ -1,0 +1,281 @@
+///Colors
+///
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+$color-grayish-blue: hsl(240, 18%, 77%);
+
+///Fonts
+///
+$ft-thin: 100;
+$ft-light: 300;
+$ft-reg: 400;
+$ft-med: 500;
+$ft-semibold: 600;
+$ft-bold: 700;
+$ft-extrabold: 800;
+$ft-black: 900;
+
+///Breakpoints
+///
+$bp-xxs: 200px;
+$bp-xs: 320px;
+$bp-s: 375px;
+$bp-sm: 500px;
+$bp-m: 750px;
+$bp-l: 992px;
+$bp-el: 1200px;
+
+///BEGIN
+///
+html {
+    box-sizing: border-box;
+    font-size: 40%;
+    @media only screen and (min-width: 200px) {
+        font-size: 50%; ////for immersive future with even smaller phones
+    }
+    @media only screen and (min-width: 320px) {
+        font-size: 62.5%; ////defines 10px as root
+    }
+    @media only screen and (min-width: 500px) {
+        font-size: 70%; ////defines 10px as root
+    }
+    @media only screen and (min-width: $bp-m) {
+        font-size: 80%; ////defines 10px as root
+    }
+    @media only screen and (min-width: $bp-l) {
+        font-size: 90%; ////defines 10px as root
+    }
+    @media only screen and (min-width: $bp-el) {
+        font-size: 110%; ////defines 10px as root
+    }
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+    background-color: rgb(56, 49, 49);
+    color: rgb(184, 44, 248);
+    *::selection{
+        color: red;
+    }
+}
+
+///container
+.container {
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    animation: moveOn 0.5s ease;
+    @media only screen and (min-width: $bp-el) {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+//TESTIMONIAL
+.testimonial {
+    display: grid;
+    margin: 2.5rem 3rem 0;
+    align-content: center;
+    transition: all 0.2s ease;
+   
+
+    &--2 {
+        position: absolute;
+        
+      
+    }
+
+    @media only screen and (min-width: $bp-l) {
+        grid-template-columns: 40% 60%;
+        margin: 0;
+        place-items: center;
+        margin: 3% 0%;
+        max-width: 1400px;
+    }
+    //photo
+    &__top {
+        position: relative;
+        margin-bottom: 4.2rem;
+        @media only screen and (min-width: $bp-l) {
+            grid-column: 2;
+            margin-bottom: 0;
+        }
+    }
+    &__pattern {
+        width: 100%;
+    }
+
+    &__avatar-container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 79%;
+        border-radius: 0.5rem;
+        z-index: 3;
+        &::after{
+            content: "";
+            position: absolute;
+            height: 110%;
+            width: 110%;
+            top:10%;
+            border-radius: 30%;
+            filter: blur(20px);
+           
+         
+          
+            z-index: -1;
+            background-color: rgba($color-black, 0.1);
+        }
+        @media only screen and (min-width: $bp-m) {
+        }
+    }
+    &__avatar {
+        border-radius: 7px;
+    }
+    //text
+    &__btm {
+        position: relative;
+        
+        @media only screen and (min-width: $bp-l) {
+            grid-column: 1;
+            grid-row: 1;
+            z-index: 100;
+            transform: translate(29%, 13%);
+            animation: moveIn 1s linear;
+        }
+        @media only screen and (min-width: $bp-el) {
+            transform: translate(29%, 13%);
+            width: 100%;
+        }
+    }
+
+    &__quotes {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20%;
+        @media only screen and (min-width: $bp-l) {
+            left: 15%
+        }
+    }
+
+    &__paragraph {
+        font-size: 1.8rem;
+        font-weight: $ft-light;
+        text-align: center;
+        padding-top: 2.5rem;
+        line-height: 1.34;
+        @media only screen and (min-width: $bp-l) {
+            text-align: start;
+            padding-top: 0;
+        }
+    }
+
+    &__credentials {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1.9rem;
+        padding-bottom: 4rem;
+        @media only screen and (min-width: $bp-l) {
+            text-align: start;
+            flex-direction: row;
+            padding-top: 1rem;
+        }
+    }
+
+    &__name {
+        font-size: 1.5rem;
+        font-weight: $ft-bold;
+        color: aqua;
+        @media only screen and (min-width: $bp-l) {
+            font-size: 1.15rem;
+        }
+    }
+
+    &__position {
+        font-size: 1.5rem;
+        color: $color-grayish-blue;
+        @media only screen and (min-width: $bp-l) {
+            padding-left: 1rem;
+            font-size: 1.15rem;
+        }
+    }
+}
+//CURVE IMG
+.curve-img {
+    @media only screen and (min-width: $bp-l) {
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        left: 0;
+    }
+}
+
+///SLIDER
+///
+.slider {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -7%;
+    display: flex;
+    gap: 3rem;
+    padding: 1.1rem;
+    justify-content: space-between;
+    background-color: $color-white;
+    border-radius: 3rem;
+    z-index: 5;
+    box-shadow: 0rem 7px 12px rgba($color-black, 0.5);
+    transition: all 0.1s ease;
+
+    &:hover {
+        transform: translateX(-50%) scale(1.1);
+    }
+    @media only screen and (min-width: $bp-l) {
+        left: 30%;
+    }
+
+    &__btn {
+        transform: scale(0.8);
+        svg {
+            stroke: #8585ac;
+            transition: all 0.1s ease;
+        }
+        svg:hover {
+            stroke: rgb(80, 4, 143);
+        }
+    }
+}
+
+
+@keyframes moveIn {
+    from{
+        opacity: 0;
+        transform: translate(29%, 17%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(29%, 13%);
+    }
+}
+
+@keyframes moveOn{
+    from{
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
